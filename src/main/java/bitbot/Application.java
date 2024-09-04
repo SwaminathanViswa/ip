@@ -3,6 +3,7 @@ package bitbot;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -92,7 +93,6 @@ public class Application {
                         break;
                     case "delete":
                         numberPart = TaskHandling.checkAndThrowException(partsOfInput, arrayList);
-
                         Task task1 = arrayList.remove(numberPart - 1);
                         System.out.println("          ____________________________________\n          "
                                 + "Noted. I've removed this task:\n"
@@ -101,7 +101,7 @@ public class Application {
                                 + "          ____________________________________");
                         break;
                     case "find":
-                        TaskHandling.handleFind(partsOfInput, arrayList);
+                        TaskHandling.handleFind(arrayList, Arrays.copyOfRange(partsOfInput, 1, partsOfInput.length));
                         break;
                     case "event":
                         // this is to check if the keyword is "event".
